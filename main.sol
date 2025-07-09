@@ -12,7 +12,7 @@ contract MyToken is ERC20, AccessControl {
     //     _grantRole(MINTER_ROLE, minter);
     // }
 
-    constructor() ERC20("MyToken", "MTK") {
+   constructor(string memory _name, string memory _symbol) ERC20(_name, _symbol) {
         _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
         _grantRole(MINTER_ROLE, msg.sender);
     }
@@ -21,4 +21,3 @@ contract MyToken is ERC20, AccessControl {
         _mint(to, amount);
     }
 }
-
